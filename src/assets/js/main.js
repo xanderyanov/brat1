@@ -1,18 +1,90 @@
 $(function () {
+
+    // $(window).load(function () {
+  //     $("#loader").delay(500).fadeOut(function () {
+  //         //$('html').css({'-webkit-transform': 'translateZ(0)'});
+  //     });
+  //     $(".mask").delay(1000).fadeOut("slow");
+  // });
+
+  $('.site__center').css({'padding-top': headerHeight});
+  
   $('.topMenu li:has(ul) > a').addClass('hasInner');
+
+  /*************** поведение fixed-шапки */
+  // var header = $('.header__area');
+  // if ($(this).scrollTop() > 0) {
+  //   header.addClass('header__area_fly');
+  //   if (header.hasClass('mainHeader')) {
+  //     $('.header__area').removeClass('headerDark');
+  //   }
+  // } else {
+  //   $('.header__area').removeClass('header__area_fly');
+  //   if (header.hasClass('mainHeader')) {
+  //     $('.header__area').addClass('headerDark');
+  //   }
+  // }
 
   //прокрутка вверх
   $('.toTop').hide();
-  $(window).scroll(function () {
+  $(window).on('scroll', function () {
     if ($(this).scrollTop() > 0) {
       $('.toTop').fadeIn();
     } else {
       $('.toTop').fadeOut();
     }
   });
-  $('.toTop').click(function () {
-    $('body,html').animate({ scrollTop: 0 }, 400);
+  $('.toTop').on('click', function () {
+    $('body,html').animate(
+      {
+        scrollTop: 0,
+      },
+      400
+    );
     return false;
+  });
+
+  $('.toTopMain').on('click', function () {
+    $('body,html').animate(
+      {
+        scrollTop: 0,
+      },
+      400
+    );
+    return false;
+  });
+
+  $('a.scrollTo').on('click', function (event) {
+    event.preventDefault();
+    var $this = $(this);
+    //var headerHeight = $('.header__area').outerHeight();
+    $('html, body').animate(
+      {
+        scrollTop: $($this.attr('href')).offset().top - headerHeight + 'px',
+      },
+      {
+        duration: 1000,
+      }
+    );
+  });
+
+  $('a.scrollTo_mb').on('click', function (event) {
+    event.preventDefault();
+    var $this = $(this);
+    var headerHeight = $('.header__area').outerHeight();
+    $('html, body').animate(
+      {
+        scrollTop: $($this.attr('href')).offset().top - headerHeight + 5 + 'px',
+      },
+      {
+        duration: 1000,
+      }
+    );
+    setTimeout(function () {
+      mobileMenuClose();
+      // $('.mobileMenu__area').removeClass('mobileMenu__area_open');
+      // $('body').removeClass('stop');
+    }, 1);
   });
 
   // $(window).load(function () {

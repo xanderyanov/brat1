@@ -13,6 +13,7 @@ function initVars() {
   $window = $(window);
   windowWidth = $window.width();
   windowHeight = $window.height();
+  headerHeight = $('.site__header').outerHeight();
 
   let vh = window.innerHeight * 0.01;
   document.documentElement.style.setProperty('--vh', `${vh}px`);

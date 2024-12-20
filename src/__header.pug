@@ -4,7 +4,13 @@ mixin header
       .logo1
         a(href='/')
           img(src="/assets/img/logo.svg", alt="")
-          span Насосы из Китая
+          //- span Компрессоры природного газа
+
+      .header__title 
+        span Предприятие по производству компрессоров природного газа:
+        span «Chengdu Tianyi Natural Gas Compressor Manufacturing Co., Ltd»
+        span Официальное представительство в России
+
       
       .header__info
         .header__infoItem 
@@ -40,20 +46,13 @@ mixin header
   .topMenu__area
     .topMenu__outer.w
       ul.topMenu
-        li.lev1.active
-          a(href='#') Главная
         li.lev1
-          a(href='#') Каталог
-          ul
-            li.lev2
-              a(href='#') Автокраны
-            li.lev2
-              a(href='#') Башенные краны
-            li.lev2
-              a(href='#') Техника для аэродромов
-            li.lev2
-              a(href='#') Разное
+          a.scrollTo(href="#portfolio") Портфолио
         li.lev1
-          a(href='#') Выкуп спецтехники
+          a.scrollTo(href="#price") Прайс
         li.lev1
-          a(href='#') Контакты
+          a.scrollTo(href="#specialists") Специалисты
+        li.lev1
+          a.scrollTo(href="#comments") Отзывы
+        li.lev1
+          a.scrollTo(href="#contacts") Контакты
